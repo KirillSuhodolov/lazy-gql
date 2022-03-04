@@ -1,0 +1,24 @@
+{
+  "name": "gql-builder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d dist"
+  },
+  "keywords": [
+    "random"
+  ],
+  "author": "KirillSuhodolov",
+  "license": "MIT",
+  "dependencies": {
+    "pluralize": "^7.0.0",
+    "ramda": "^0.27.1",
+    "ramda-adjunct": "^2.33.0",
+    "voca": "^1.4.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11"
+  }
+}
