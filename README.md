@@ -121,9 +121,10 @@ query QueryUsers {
 
 all api methods have similar argument types - first is struct, second, variables
 more special info about each Hasura api methods
-[buildQuery](https://hasura.io/docs/latest/graphql/core/databases/postgres/queries/index.html) -
-[buildUpsert](https://hasura.io/docs/latest/graphql/core/databases/postgres/mutations/upsert.html)
-[buildInsert](https://hasura.io/docs/latest/graphql/core/databases/postgres/mutations/insert.html)
-[buildUpdate](https://hasura.io/docs/latest/graphql/core/databases/postgres/mutations/update.html)
-[buildDestroy](https://hasura.io/docs/latest/graphql/core/databases/postgres/mutations/delete.html)
-buildSafeDestroy - is update with passed deleted_at timestamp
+
+- [buildQuery](https://hasura.io/docs/latest/graphql/core/databases/postgres/queries/index.html) -
+- [buildUpsert](https://hasura.io/docs/latest/graphql/core/databases/postgres/mutations/upsert.html)
+- [buildInsert](https://hasura.io/docs/latest/graphql/core/databases/postgres/mutations/insert.html)
+- [buildUpdate](https://hasura.io/docs/latest/graphql/core/databases/postgres/mutations/update.html)
+- [buildDestroy](https://hasura.io/docs/latest/graphql/core/databases/postgres/mutations/delete.html)
+- buildSafeDestroy - is update with passed deleted_at timestamp
