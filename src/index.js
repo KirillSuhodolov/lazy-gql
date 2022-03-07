@@ -6,7 +6,7 @@ import * as queries from './queries'
 // const { buildUpsert, buildInsert, buildUpdate, buildSafeDestroy, buildDestroy } = mutations
 // const { buildQuery } = queries
 
-export const setTableKeys = database.setTableKeys
+export const setDataSchema = database.setDataSchema
 export const execute = database.execute
 export const deleteByPkMutation = database.deleteByPkMutation
 export const deleteWhereMutation = database.deleteWhereMutation

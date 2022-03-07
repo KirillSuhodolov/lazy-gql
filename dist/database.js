@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateWhereMutation = exports.updateByPkMutation = exports.setTableKeys = exports.queryWhereQuery = exports.queryByPkQuery = exports.insertOneMutation = exports.insertMultipleMutation = exports.execute = exports.deleteWhereMutation = exports.deleteByPkMutation = void 0;
+exports.updateWhereMutation = exports.updateByPkMutation = exports.setDataSchema = exports.queryWhereQuery = exports.queryByPkQuery = exports.insertOneMutation = exports.insertMultipleMutation = exports.execute = exports.deleteWhereMutation = exports.deleteByPkMutation = void 0;
 
 var _ramda = require("ramda");
 
@@ -13,7 +13,7 @@ var _pluralize = require("pluralize");
 
 var _voca = require("voca");
 
-var _array = require("utils/array");
+var _array = require("./array");
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -41,13 +41,13 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var tableKeys = {};
+var dataSchema = {};
 
-var setTableKeys = function setTableKeys(data) {
-  return tableKeys = data;
+var setDataSchema = function setDataSchema(data) {
+  return dataSchema = data;
 };
 
-exports.setTableKeys = setTableKeys;
+exports.setDataSchema = setDataSchema;
 
 var strIncludes = function strIncludes(substr) {
   return function (str) {
@@ -138,11 +138,11 @@ var makeGql = function makeGql(variablesSchema) {
     var inner = (0, _ramda.pluck)('part')(innerGql);
     var nestedVariables = (0, _ramda.pluck)('variables')(innerGql);
     var nestedSkeleton = (0, _ramda.pluck)('skeleton')(innerGql);
-    var mergedNestedSkeleton = (0, _ramda.mergeAll)([].concat(_toConsumableArray(nestedSkeleton), [skeletonMock(fragmentKeys(tableKeys)(table))]));
+    var mergedNestedSkeleton = (0, _ramda.mergeAll)([].concat(_toConsumableArray(nestedSkeleton), [skeletonMock(fragmentKeys(dataSchema)(table))]));
     var wrapperLeft = wrapper ? "".concat(wrapper, " {") : '';
     var wrapperRight = wrapper ? '}' : '';
     return {
-      part: "".concat(name || k).concat(cond, " { ").concat(wrapperLeft, " ").concat(fragmentKeys(tableKeys)(table).join(" "), " ").concat(inner.join(" "), " ").concat(wrapperRight, " }"),
+      part: "".concat(name || k).concat(cond, " { ").concat(wrapperLeft, " ").concat(fragmentKeys(dataSchema)(table).join(" "), " ").concat(inner.join(" "), " ").concat(wrapperRight, " }"),
       variables: (0, _ramda.flatten)([variables, nestedVariables]),
       skeleton: (0, _pluralize.isPlural)(k) ? _defineProperty({}, k, [mergedNestedSkeleton]) : _defineProperty({}, k, mergedNestedSkeleton)
     };

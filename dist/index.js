@@ -5,7 +5,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateWhereMutation = exports.updateByPkMutation = exports.setTableKeys = exports.queryWhereQuery = exports.queryByPkQuery = exports.insertOneMutation = exports.insertMultipleMutation = exports.execute = exports.deleteWhereMutation = exports.deleteByPkMutation = exports["default"] = exports.buildUpsert = exports.buildUpdate = exports.buildSafeDestroy = exports.buildQuery = exports.buildInsert = exports.buildDestroy = void 0;
+exports.updateWhereMutation = exports.updateByPkMutation = exports.setDataSchema = exports.queryWhereQuery = exports.queryByPkQuery = exports.insertOneMutation = exports.insertMultipleMutation = exports.execute = exports.deleteWhereMutation = exports.deleteByPkMutation = exports["default"] = exports.buildUpsert = exports.buildUpdate = exports.buildSafeDestroy = exports.buildQuery = exports.buildInsert = exports.buildDestroy = void 0;
 
 var database = _interopRequireWildcard(require("./database"));
 
@@ -26,8 +26,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 // const { setTableKeys, execute, deleteByPkMutation, deleteWhereMutation, insertMultipleMutation, insertOneMutation, queryByPkQuery, queryWhereQuery, updateByPkMutation, updateWhereMutation } = database
 // const { buildUpsert, buildInsert, buildUpdate, buildSafeDestroy, buildDestroy } = mutations
 // const { buildQuery } = queries
-var setTableKeys = database.setTableKeys;
-exports.setTableKeys = setTableKeys;
+var setDataSchema = database.setDataSchema;
+exports.setDataSchema = setDataSchema;
 var execute = database.execute;
 exports.execute = execute;
 var deleteByPkMutation = database.deleteByPkMutation;

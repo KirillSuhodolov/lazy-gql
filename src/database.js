@@ -30,15 +30,14 @@ import {
   and,
   fromPairs,
 } from 'ramda'
-// import tableKeys from 'utils/dataSchema'
 import { compact } from 'ramda-adjunct'
 import { plural, isPlural } from 'pluralize'
 import { camelCase, capitalize, snakeCase, upperCase } from 'voca'
-import { wrapToArray } from 'utils/array'
+import { wrapToArray } from './array'
 
-let tableKeys = {}
+let dataSchema = {}
 
-export const setTableKeys = (data) => tableKeys = data
+export const setDataSchema = (data) => dataSchema = data
 
 const strIncludes = (substr) => (str) => str.includes(substr)
 
@@ -87,12 +86,12 @@ const makeGql = (variablesSchema) => (struct, name, wrapper) => {
   const inner = pluck('part')(innerGql)
   const nestedVariables = pluck('variables')(innerGql)
   const nestedSkeleton = pluck('skeleton')(innerGql)
-  const mergedNestedSkeleton = mergeAll([...nestedSkeleton, skeletonMock(fragmentKeys(tableKeys)(table))])
+  const mergedNestedSkeleton = mergeAll([...nestedSkeleton, skeletonMock(fragmentKeys(dataSchema)(table))])
   const wrapperLeft = wrapper ? `${wrapper} {` : ''
   const wrapperRight = wrapper ? '}' : ''
 
   return {
-    part: `${name || k}${cond} { ${wrapperLeft} ${fragmentKeys(tableKeys)(table).join(` `)} ${inner.join(` `)} ${wrapperRight} }`,
+    part: `${name || k}${cond} { ${wrapperLeft} ${fragmentKeys(dataSchema)(table).join(` `)} ${inner.join(` `)} ${wrapperRight} }`,
     variables: flatten([variables, nestedVariables]),
     skeleton: isPlural(k) ? { [k]: [mergedNestedSkeleton] } : { [k]: mergedNestedSkeleton },
   }
