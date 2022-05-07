@@ -9,9 +9,9 @@ Library is abstruction layer ower Hasura query api
 
 ### How to use
 
-1. Create dataSchema file, minimal example
+1 Create dataSchema file, minimal example
 
-```
+```js
 export default {
   user: {
     id: { },
@@ -21,9 +21,9 @@ export default {
 }
 ```
 
-2. Fill internal library store with `setDataSchema`
+2 Fill internal library store with `setDataSchema`
 
-```
+```js
 import { setDataSchema } from 'lazy-gql'
 import dataSchema from 'dataSchema'
 
@@ -31,13 +31,13 @@ setDataSchema(dataSchema)
 
 ```
 
-3. Call one of build methods
+3 Call one of build methods
 
 #### Examples
 
 #### [lazy-gql-request](https://github.com/KirillSuhodolov/lazy-gql-request) for backend use example(with next.js api routes)
 
-```
+```js
 import { request } from 'lazy-gql-request'
 import { buildInsert, setDataSchema } from 'lazy-gql'
 import dataSchema from 'dataSchema'
@@ -57,7 +57,7 @@ export default handler
 
 Set data schema you could on app instance initialization
 
-```
+```js
 import { setDataSchema } from 'lazy-gql'
 import dataSchema from 'dataSchema'
 
@@ -72,7 +72,7 @@ See examples at each package separately
 
 ### Complex example with relations
 
-```
+```js
 export default {
   user: {
     id: { },
@@ -90,7 +90,7 @@ export default {
 
 ```
 
-```
+```js
 return await request(process.env.URL)(buildQuery({
   users: [{
     projects: ['flows']
@@ -100,7 +100,7 @@ return await request(process.env.URL)(buildQuery({
 
 this renders gql query
 
-```
+```js
 query QueryUsers {
   users {
     id
@@ -122,7 +122,7 @@ query QueryUsers {
 all api methods have similar argument types - first is struct, second, variables
 more special info about each Hasura api methods
 
-- [buildQuery](https://hasura.io/docs/latest/graphql/core/databases/postgres/queries/index.html) -
+- [buildQuery](https://hasura.io/docs/latest/graphql/core/databases/postgres/queries/index.html)
 - [buildUpsert](https://hasura.io/docs/latest/graphql/core/databases/postgres/mutations/upsert.html)
 - [buildInsert](https://hasura.io/docs/latest/graphql/core/databases/postgres/mutations/insert.html)
 - [buildUpdate](https://hasura.io/docs/latest/graphql/core/databases/postgres/mutations/update.html)
